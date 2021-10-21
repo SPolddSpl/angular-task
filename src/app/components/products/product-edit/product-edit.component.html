@@ -1,0 +1,52 @@
+<ng-container *ngIf="product">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired>name</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <input nz-input formControlName="name" placeholder="name" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired>avatar</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <input nz-input formControlName="avatar" placeholder="avatar" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired>count</nz-form-label>
+      <nz-form-control [nzSpan]="12">
+        <input nz-input formControlName="count" placeholder="count" type="number" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired>weight</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzDisableAutoTips nzErrorTip="weight">
+        <input nz-input type="number" formControlName="weight" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired>width</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzDisableAutoTips>
+        <input nz-input type="number" formControlName="width" placeholder="width" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired>height</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzDisableAutoTips>
+        <input nz-input type="number" formControlName="height" placeholder="height" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired>imageUrl</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzDisableAutoTips>
+        <input nz-input type="text" formControlName="imageUrl" placeholder="imageUrl" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzOffset]="12" [nzSpan]="12">
+        <button nz-button nzType="primary">Submit</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</ng-container>

@@ -1,0 +1,17 @@
+<div class="action-btns">
+  <div class="add-btn">
+    <button nz-button nzGhost nzShape="round" nzType="primary" (click)="toggleModal()">Add new Product</button>
+  </div>
+  <div class="sort-btns">
+    <button nz-button nzType="primary" (click)="sortBy('name')">
+      Name
+      <i nz-icon nzType="caret-down" nzTheme="fill" *ngIf="isNameDesc"></i>
+      <i nz-icon nzType="caret-up" nzTheme="fill" *ngIf="!isNameDesc"></i>
+    </button>
+    <button nz-button nzType="primary" (click)="sortBy('count')">
+      Count
+      <i nz-icon nzType="caret-down" nzTheme="fill" *ngIf="isCountDesc"></i>
+      <i nz-icon nzType="caret-up" nzTheme="fill" *ngIf="!isCountDesc"></i>
+    </button>
+  </div>
+</div>

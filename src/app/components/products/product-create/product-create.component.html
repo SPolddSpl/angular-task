@@ -1,0 +1,44 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" [nzLayout]="'horizontal'">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzRequired nzFor="name">Name</nz-form-label>
+    <nz-form-control [nzSpan]="20" nzErrorTip="Please input product name">
+      <input type="text" nz-input formControlName="name" placeholder="Please input product name" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzRequired nzFor="imageUrl">Image Url</nz-form-label>
+    <nz-form-control [nzSpan]="20" nzErrorTip="Please input image url">
+      <input type="text" nz-input formControlName="imageUrl" placeholder="Please input image url" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzRequired nzFor="avatar">Avatar</nz-form-label>
+    <nz-form-control [nzSpan]="20" nzErrorTip="Please input avatar url">
+      <input type="text" nz-input formControlName="avatar" placeholder="Please input avatar url" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzRequired nzFor="width">Width</nz-form-label>
+    <nz-form-control [nzSpan]="20" nzErrorTip="Please input product width">
+      <input type="number" nz-input formControlName="width" placeholder="Please input product width" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzRequired nzFor="height">Height</nz-form-label>
+    <nz-form-control [nzSpan]="20" nzErrorTip="Please input product height">
+      <input type="number" nz-input formControlName="height" placeholder="Please input product height" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzRequired nzFor="weight">Weight</nz-form-label>
+    <nz-form-control [nzSpan]="20" nzErrorTip="Please input product weight">
+      <input type="number" nz-input formControlName="weight" placeholder="Please input product weight" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzRequired nzFor="count">Count</nz-form-label>
+    <nz-form-control [nzSpan]="20" nzErrorTip="Please input product count">
+      <input type="number" nz-input formControlName="count" placeholder="Please input product count" />
+    </nz-form-control>
+  </nz-form-item>
+</form>

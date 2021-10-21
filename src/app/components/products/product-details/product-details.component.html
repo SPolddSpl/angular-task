@@ -1,0 +1,45 @@
+<div class="details" *ngIf="product">
+  <div class="details__logo"
+    [style.background]="'url(' + product.imageUrl + '),' + 'url(https://c.tenor.com/X0NSqusKk0UAAAAC/jujutsu-jujutsu-kaisen.gif)'">
+  </div>
+  <div class="details__main">
+    <div class="details__desc">
+      <div class="title">
+        <h1 nz-typography>{{product.name}}</h1>
+      </div>
+      <div>
+        Weight: {{product.weight}}
+      </div>
+      <div>
+        Count: {{product.count}}
+      </div>
+      <div>
+        Size: Width: {{product.size.width}}, Height: {{product.size.height}}
+      </div>
+    </div>
+    <div class="details__comments">
+      <div>
+        <h1 nz-typography>Comments Title</h1>
+      </div>
+      <cdk-virtual-scroll-viewport *ngIf="product.comments.length" itemSize="20" class="comments-scorll">
+        <nz-list nzItemLayout="horizontal">
+          <nz-list-item *cdkVirtualFor="let item of product.comments">
+            <nz-list-item-meta nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              nzDescription="{{item.userId}}">
+              <nz-list-item-meta-title>
+                <a href="https://ng.ant.design">{{ item }} Comment content</a>
+              </nz-list-item-meta-title>
+            </nz-list-item-meta>
+          </nz-list-item>
+          <nz-list-empty *ngIf="product.comments.length === 0"></nz-list-empty>
+        </nz-list>
+      </cdk-virtual-scroll-viewport>
+      <div class="comment-input">
+        <textarea nz-input placeholder="Comment goes here" [(ngModel)]="commentInput" [nzAutosize]="{ minRows: 3, maxRows: 5 }"></textarea>
+        <div class="comment-submit">
+          <button nz-button nzType="primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<nz-card [nzCover]="coverTemplate" [nzActions]="[actionEdit, actionDetails, actionDelete]">
+  <nz-card-meta nzTitle="{{product.name}}" nzDescription="Count {{product.count}}" [nzAvatar]="avatarTemplate">
+  </nz-card-meta>
+</nz-card>
+<ng-template #avatarTemplate>
+  <nz-avatar nzSrc="{{product.avatar}}" (nzError)="onAvatarLoadErr()"></nz-avatar>
+</ng-template>
+<ng-template #coverTemplate>
+  <img alt="logo" src="{{product.imageUrl}}"
+    onerror="this.src='https://c.tenor.com/X0NSqusKk0UAAAAC/jujutsu-jujutsu-kaisen.gif'" />
+</ng-template>
+<ng-template #actionEdit>
+  <i nz-icon nzType="edit" [routerLink]="['/edit', product.id]"></i>
+</ng-template>
+<ng-template #actionDetails>
+  <i nz-icon [routerLink]="['/details', product.id]" nzType="ellipsis"></i>
+</ng-template>
+<ng-template #actionDelete>
+  <i nz-icon (click)="showConfirm()" nzType="delete" nzTheme="outline"></i>
+</ng-template>
+
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Modal" nzOkText="Ok" nzCancelText="Cancel" (nzOnOk)="handleOk()"
+  (nzOnCancel)="handleCancel()">
+  <ng-container *nzModalContent>
+    <p>Do you really want to delete this product? Name: {{product.name}}</p>
+  </ng-container>
+</nz-modal>

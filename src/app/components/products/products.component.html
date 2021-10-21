@@ -1,0 +1,20 @@
+<app-products-sort-bar (productsSort)="onProductsSort($event)" [isVisible]="isVisible" (setVisibility)="openModal($event)" [products]="products"></app-products-sort-bar>
+
+<cdk-virtual-scroll-viewport itemSize="20" class="scroll-infinite" style="margin-top: 5px;">
+  <div class="gutter">
+    <div nz-row [nzGutter]="[hGutter, vGutter]">
+      <div nz-col class="gutter-row" [nzSpan]="24 / count" *cdkVirtualFor="let item of products">
+        <div class="grid-config">
+          <app-product-card (isDeleted)="fetchProducts()" [product]="item"></app-product-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</cdk-virtual-scroll-viewport>
+
+<nz-modal [(nzVisible)]="isVisible" nzCentered nzTitle="Create New Product" (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOkay()">
+  <ng-container *nzModalContent>
+    <app-product-create (productAdded)="isAdded($event)"></app-product-create>
+  </ng-container>
+</nz-modal>
