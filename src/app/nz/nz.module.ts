@@ -1,3 +1,5 @@
+//Module for UI framework
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';

@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
+//Product service generally makes CRUD API calls
 export class ProductsService {
   baseUrl: string;
 

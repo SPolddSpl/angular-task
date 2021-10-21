@@ -20,7 +20,6 @@ export class AuthGuard implements CanActivate {
     }
     
     if (localStorage.getItem('userRole') === 'User' || localStorage.getItem('userRole') === 'Admin') {
-      console.log('Here')
       return true;
     }
     this.router.navigate(['auth']);

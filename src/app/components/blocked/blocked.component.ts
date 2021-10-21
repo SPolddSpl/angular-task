@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './blocked.component.html',
   styleUrls: ['./blocked.component.scss']
 })
+
+//Work in progress
 export class BlockedComponent implements OnInit {
 
   constructor() { }

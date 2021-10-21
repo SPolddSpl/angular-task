@@ -10,6 +10,8 @@ import { ToastService } from 'src/app/services/toast.service';
   templateUrl: './product-edit.component.html',
   styleUrls: ['./product-edit.component.scss']
 })
+
+//Product Edit component
 export class ProductEditComponent implements OnInit {
   product: Product;
   validateForm: FormGroup;
@@ -19,12 +21,12 @@ export class ProductEditComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
-    this.getProduct();
-
+    this.initForm();
   }
 
-  async getProduct() {
-    this.product = await this.productService.getProductDetails(this.route.snapshot.params.id);
+  //Init Form and get Product info for editing
+  async initForm() {
+    this.product = await this.getProduct();
     this.validateForm = this.fb.group({
       name: [this.product.name, [Validators.required],],
       avatar: [this.product.avatar, [Validators.required]],
@@ -36,6 +38,15 @@ export class ProductEditComponent implements OnInit {
     });
   }
 
+  //Fetching product data
+  async getProduct() {
+    return this.productService.getProductDetails(this.route.snapshot.params.id);
+  }
+
+
+
+
+  //submit function 
   async submitForm() {
     if (this.validateForm.valid) {
       const editedProduct: Product = {

@@ -7,6 +7,8 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
+
+//Work in progress
 export class AuthComponent implements OnInit {
 
   validateForm!: FormGroup;

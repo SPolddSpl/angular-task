@@ -8,6 +8,8 @@ import { ProductsComponent } from '../products.component';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
+
+//Product card components, thats will be shown at dashboard
 export class ProductCardComponent implements OnInit {
   @Input() product: Product;
   @Output() isDeleted = new EventEmitter<boolean>();
@@ -18,19 +20,26 @@ export class ProductCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //function thats handles product avatar img fallback and override it
   onAvatarLoadErr() {
     this.product.avatar = 'https://c.tenor.com/X0NSqusKk0UAAAAC/jujutsu-jujutsu-kaisen.gif';
   }
 
+
+  //show Delete confirm modal
   showConfirm() {
     this.toggleModal();
   }
 
+
+  //API call that deletes curr product
   async deleteProduct() {
     await this.productService.deleteProduct(this.product.id);
   }
 
 
+
+  //Delete modal handle OK button, that executes api call and then show messages bout this call result
   async handleOk() {
     await this.deleteProduct();
     this.toastService.createToast('success', 'Product deleted');
@@ -38,11 +47,12 @@ export class ProductCardComponent implements OnInit {
     this.isDeleted.emit(true);
   }
 
+  //handle cancel btn of Delete Modal 
   handleCancel() {
     this.toggleModal()
-    console.log('Heh, okay')
   }
 
+  //Toggle visibility of delete Modal 
   toggleModal() {
     this.isVisible = !this.isVisible;
   }

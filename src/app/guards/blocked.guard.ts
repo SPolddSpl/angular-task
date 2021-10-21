@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+//Blocked logic is not ready
 export class BlockedGuard implements CanActivate {
   constructor(private router: Router) {
 

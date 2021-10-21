@@ -9,19 +9,20 @@ import { ToastService } from 'src/app/services/toast.service';
   templateUrl: './product-create.component.html',
   styleUrls: ['./product-create.component.scss']
 })
+
+//Product create modal form
 export class ProductCreateComponent implements OnInit {
   @Output() productAdded = new EventEmitter<boolean>();
   validateForm!: FormGroup;
-  captchaTooltipIcon: NzFormTooltipIcon = {
-    type: 'info-circle',
-    theme: 'twotone'
-  };
+
   constructor(private fb: FormBuilder, private productService: ProductsService, private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.formInit();
   }
 
+
+  //form init 
   formInit(): void {
     this.validateForm = this.fb.group({
       imageUrl: [null, [Validators.required]],
@@ -34,6 +35,7 @@ export class ProductCreateComponent implements OnInit {
     })
   }
 
+  //submit function for form
   submitForm(): void {
     for (const i in this.validateForm.controls) {
       if (this.validateForm.controls.hasOwnProperty(i)) {
@@ -61,6 +63,7 @@ export class ProductCreateComponent implements OnInit {
     }
   }
 
+  //Api call, that creates new product
   async createProduct(newProduct: Product) {
     await this.productService.createProduct(newProduct);
     this.toastService.createToast('success', `Product added`);

@@ -6,6 +6,7 @@ import { Product } from 'src/app/services/products.service';
   templateUrl: './products-sort-bar.component.html',
   styleUrls: ['./products-sort-bar.component.scss']
 })
+//Product Sort bar comp (not successful name for this comp), because it sorts data, not just showing sort bar
 export class ProductsSortBarComponent implements OnInit {
   @Input() products: Product[];
   @Output() productsSort = new EventEmitter<Product[]>();
@@ -20,6 +21,7 @@ export class ProductsSortBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Sort function, sort type depends on type var
   sortBy(type: string) {
     if (type === 'name') {
       this.isNameDesc = !this.isNameDesc;
@@ -39,6 +41,7 @@ export class ProductsSortBarComponent implements OnInit {
     this.productsSort.emit(this.products)
   }
 
+  //Event emmit for parent comp
   toggleModal() {
     this.setVisibility.emit(!this.isVisible);
   }
