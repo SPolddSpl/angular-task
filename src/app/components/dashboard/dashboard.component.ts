@@ -1,5 +1,5 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,9 +14,12 @@ but I didnt make it in time, so now its just entry (dumb) comp of app
 export class DashboardComponent implements OnInit {
   isCollapsed: boolean = false;
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
   }
   
+  goBack() {
+    this.location.back();
+  }
 }
